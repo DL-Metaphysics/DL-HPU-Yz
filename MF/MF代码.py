@@ -27,19 +27,13 @@ def matrix_factorization(R,P,Q,K,steps=5000,alpha=0.0002,beta=0.02): #矩阵因�
     return P,Q.T,result
 
 if __name__ == '__main__':   #主函数
-    R=[                 #原始矩阵
-        [5,3,0,1],
-        [4,0,0,1],
-        [1,1,0,5],
-        [1,0,0,4],
-        [0,1,5,4]
-    ]
+    R=[[5,3,0,1],[4,0,0,1],[1,1,0,5],[1,0,0,4],[0,1,5,4]] #原始矩阵  
     R=numpy.array(R)
     N=len(R)    #原矩阵R的行数
     M=len(R[0]) #原矩阵R的列数
     K=3    #K值可根据需求改变
-    P=numpy.random.rand(N,K) #随机生成一个 N行 K列的矩阵
-    Q=numpy.random.rand(M,K) #随机生成一个 M行 K列的矩阵
+    P=numpy.random.rand(N,K) #随机生成一个 N 行 K列的矩阵
+    Q=numpy.random.rand(M,K) #随机生成一个 M 行 K列的矩阵
     nP,nQ,result=matrix_factorization(R,P,Q,K)
     print(R)         #输出原矩阵
     R_MF=numpy.dot(nP,nQ.T)
